@@ -32,7 +32,7 @@ export class AppMenu {
                 {
                     label: 'Carrito',
                     icon: 'pi pi-fw pi-shopping-cart',
-                    routerLink: ['/dashboard-ecommerce']
+                    routerLink: ['/landing/carts']
                 }
             ]
         },

@@ -15,6 +15,11 @@ export const appRoutes: Routes = [
                 path: 'products',
                 loadComponent: () => import('@/pages/products/product').then((c) => c.ProductList),
                 data: {breadcrumb: 'Productos'}
+            },
+            {
+                path: 'carts',
+                loadComponent: () => import('@/pages/carts/cart').then((c) => c.CartList),
+                data: {breadcrumb: 'Carrito'}
             }
         ]
     },
