@@ -15,6 +15,14 @@ export interface RegisterRequest {
     phone: string;
 }
 
+export interface UserProfile {
+    id: number;
+    name: string;
+    email: string;
+    address: string;
+    phone: string;
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -36,10 +44,14 @@ export class AuthService {
         return this.http.post<any>(this.apiUrl + 'user/register', data);
     }
 
+    //Profile
+    getProfile(clientId: number): Observable<any> {
+        return this.http.get<any[]>(this.apiUrl + 'user/profile/' + clientId);
+    }
+
     //Logout
     logout(): void {
         localStorage.removeItem('auth_token');
-        window.location.href = '/landing/login'; 
+        window.location.href = '/landing/login';
     }
-
 }

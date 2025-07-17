@@ -1,8 +1,8 @@
-import {Routes} from '@angular/router';
-import {AppLayout} from '@/layout/components/app.layout';
-import {LandingLayout} from '@/layout/components/app.landinglayout';
-import {AuthLayout} from '@/layout/components/app.authlayout';
-import {Notfound} from '@/pages/notfound/notfound';
+import { Routes } from '@angular/router';
+import { AppLayout } from '@/layout/components/app.layout';
+import { LandingLayout } from '@/layout/components/app.landinglayout';
+import { AuthLayout } from '@/layout/components/app.authlayout';
+import { Notfound } from '@/pages/notfound/notfound';
 import { AuthGuard } from '@/pages/service/auth_guard';
 
 export const appRoutes: Routes = [
@@ -14,12 +14,17 @@ export const appRoutes: Routes = [
             {
                 path: 'products',
                 loadComponent: () => import('@/pages/products/product').then((c) => c.ProductList),
-                data: {breadcrumb: 'Productos'}
+                data: { breadcrumb: 'Productos' }
             },
             {
                 path: 'carts',
                 loadComponent: () => import('@/pages/carts/cart').then((c) => c.CartList),
-                data: {breadcrumb: 'Carrito'}
+                data: { breadcrumb: 'Carrito' }
+            },
+            {
+                path: 'profile',
+                loadComponent: () => import('@/pages/auth/profile').then((c) => c.Profile),
+                data: { breadcrumb: 'Perfil' }
             }
         ]
     },
@@ -41,11 +46,11 @@ export const appRoutes: Routes = [
             }
         ]
     },
-    {path: 'notfound', component: Notfound},
+    { path: 'notfound', component: Notfound },
     {
         path: 'auth',
         component: AuthLayout,
         children: []
     },
-    {path: '**', redirectTo: '/notfound'}
+    { path: '**', redirectTo: '/notfound' }
 ];

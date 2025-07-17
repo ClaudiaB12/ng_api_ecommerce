@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { AppMenuitem } from './app.menuitem';
 import { AuthService } from '@/pages/service/auth.service';
 
@@ -18,7 +18,7 @@ import { AuthService } from '@/pages/service/auth.service';
     `
 })
 export class AppMenu {
-    constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService) { }
     model: any[] = [
         {
             label: 'Opciones',
@@ -44,6 +44,8 @@ export class AppMenu {
                 {
                     label: 'Perfil',
                     icon: 'pi pi-user',
+                    routerLink: ['/landing/profile']
+
                 },
                 {
                     label: 'Cerrar Sesión',
